@@ -20,7 +20,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --configuration Release --no-build --verbosity normal
     - name: Pack & Publish All Nuget Packages
       run: |
         dotnet pack --configuration Release --no-build --output packages --include-symbols Monzo/Monzo.csproj
