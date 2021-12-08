@@ -2,7 +2,7 @@ name: .NET
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ forked-dev ]
   pull_request:
     branches: [ dev ]
 
@@ -33,3 +33,4 @@ jobs:
         with:
           name: publish
           path: publish
+
