@@ -23,7 +23,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Pack & Publish All Nuget Packages
       run: |
-        dotnet pack --configuration Release --no-build --output packages --include-symbols
+        dotnet pack --configuration Release --no-build --output packages --include-symbols Monzo/Monzo.csproj
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
