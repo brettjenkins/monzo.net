@@ -15,6 +15,7 @@
     <PackageProjectUrl>https://github.com/brettjenkins/monzo.net</PackageProjectUrl>
     <PackageIconUrl>https://twitter.com/monzo/profile_image?size=original</PackageIconUrl>
     <RepositoryUrl>https://github.com/brettjenkins/monzo.net</RepositoryUrl>
+    <Product>Monzo.NET</Product>
   </PropertyGroup>
 
   <ItemGroup>
