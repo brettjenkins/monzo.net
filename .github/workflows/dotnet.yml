@@ -21,16 +21,16 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-  deploy:
-    #if: contains(github.ref, 'dev')
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy app
-        run: dotnet pack -c Release -o publish Monzo/Monzo.csproj
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: publish
-          path: publish
+    - name: Deploy app
+      run: dotnet pack -c Release -o publish Monzo/Monzo.csproj
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: publish
+        path: publish
+    - name: Publish Nuget Package
+      if: github.actor != 'dependabot[bot]'
+      run: |
+        dotnet nuget add source https://nuget.pkg.github.com/brettjenkins/index.json -n GitHub -u ${{ github.actor }} -p ${{ secrets.GH_PAT }} --store-password-in-clear-text
+        dotnet nuget push "packages/*"  --source "GitHub"  
 
